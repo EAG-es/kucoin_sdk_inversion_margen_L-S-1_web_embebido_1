@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head> 
+        <title th:replace="@{/fragmentos/fragmentos_principales} :: head"/>
+    </head>
+    <body>
+        <div th:insert="@{/fragmentos/fragmentos_principales} :: cabecera"></div>
+        <form th:action="@{/kucoin_sdk_identificaciones}" method="post" target="_blank">
+            <div class="container px-1 mx-1">
+                <div class="form-group">
+                    <label for="clave"><span th:text="${clave_txt}" /></label> <input type="password" name="clave" th:value="${clave}" id="clave" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="secreto"><span th:text="${secreto_txt}" /></label> <input type="password" name="secreto" th:value="${secreto}" id="secreto" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="contrasenha"><span th:text="${contrasenha_txt}"/></label> <input type="password" name="contrasenha" th:value="${contrasenha}" id="contrasenha" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="es_modo_prueba" checked id="es_modo_prueba"> <label for="es_modo_prueba"><span th:text="${es_modo_prueba_txt}"/></label> 
+                    <button type="submit" class="btn bg-success"><span th:text="${enviar_txt}"/></button>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

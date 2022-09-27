@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head> 
+        <title th:replace="@{/fragmentos/fragmentos_principales} :: head"/>
+    </head>
+    <body>
+        <div th:insert="@{/fragmentos/fragmentos_principales} :: cabecera"></div>
+        <form th:action="@{/menu_principal}" method="post">
+            <div class="container px-1 mx-1" th:each="opcion : ${mapa}">
+                <div class="form-group">
+                    <button type="submit" name="menu_principal_opcion" th:value="${opcion.key}" class="btn bg-success"><span th:text="${seleccionar}"/></button>
+                    <label><span th:text="${opcion.value}"/></label>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head> 
+        <title th:replace="@{/fragmentos/fragmentos_principales} :: head"/>
+    </head>
+    <body>
+        <div th:insert="@{/fragmentos/fragmentos_principales} :: cabecera"></div>
+        <form th:action="@{/menu_principal}" method="post">
+            <div class="container px-1 mx-1">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="form-group" th:each="linea_cabecera : ${mapas_mapa.get('cabecera')}" th:text="${linea_cabecera.value}">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="mapa : ${mapas_mapa}" th:if="${mapa.key} != 'cabecera'">
+                            <td class="form-group" th:each="linea : ${mapa.value}" th:text="${linea.value}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </body>
+</html>
